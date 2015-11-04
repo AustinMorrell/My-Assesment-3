@@ -1,0 +1,29 @@
+﻿Build started 11/4/2015 1:11:03 PM.
+     1>Project "C:\Users\Austin.Morrell\Desktop\AIE_Framework-2015\Your Project\Your Project.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"C:\Users\Austin.Morrell\Desktop\AIE_Framework-2015\Your Project\\Dependencies\include\SDL" /I"C:\Users\Austin.Morrell\Desktop\AIE_Framework-2015\Your Project\\Dependencies\include\OpenGL" /I"C:\Users\Austin.Morrell\Desktop\AIE_Framework-2015\Your Project\\Dependencies\include\Graphics" /I"C:\Users\Austin.Morrell\Desktop\AIE_Framework-2015\Your Project\\Dependencies\include\Math" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt GameLoop.cpp
+         GameLoop.cpp
+     1>c:\users\austin.morrell\desktop\aie_framework-2015\your project\dependencies\include\graphics\graphics.h(333): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+         c:\users\austin.morrell\desktop\aie_framework-2015\your project\gameloop.cpp(54): note: see reference to function template instantiation 'void Graphics::DrawRing<int>(const System::Point2D<int>,const T,const T,const System::Color<T> &)' being compiled
+                 with
+                 [
+                     T=int
+                 ]
+     1>c:\users\austin.morrell\desktop\aie_framework-2015\your project\dependencies\include\graphics\graphics.h(334): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\austin.morrell\desktop\aie_framework-2015\your project\dependencies\include\graphics\graphics.h(352): warning C4244: 'argument': conversion from 'const int' to 'GLfloat', possible loss of data
+         c:\users\austin.morrell\desktop\aie_framework-2015\your project\gameloop.cpp(55): note: see reference to function template instantiation 'void Graphics::DrawCircle<int>(const System::Point2D<int>,const T,const T,const System::Color<T> &)' being compiled
+                 with
+                 [
+                     T=int
+                 ]
+     1>c:\users\austin.morrell\desktop\aie_framework-2015\your project\dependencies\include\graphics\graphics.h(356): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\austin.morrell\desktop\aie_framework-2015\your project\dependencies\include\graphics\graphics.h(357): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Austin.Morrell\Desktop\AIE_Framework-2015\Debug\Your Project.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Austin.Morrell\Desktop\AIE_Framework-2015\Your Project\\Dependencies\lib" /LIBPATH:"C:\Users\Austin.Morrell\Desktop\AIE_Framework-2015\Your Project\\Dependencies\lib\SDL" /LIBPATH:"C:\Users\Austin.Morrell\Desktop\AIE_Framework-2015\Your Project\\Dependencies\lib\OpenGL" "SDL-OpenGL Student Library.lib" "Template-Vector-Partner-Project.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Austin.Morrell\Desktop\AIE_Framework-2015\Debug\Your Project.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Austin.Morrell\Desktop\AIE_Framework-2015\Debug\Your Project.lib" /MACHINE:X86 Debug\GameLoop.obj
+         Debug\Source.obj
+         Your Project.vcxproj -> C:\Users\Austin.Morrell\Desktop\AIE_Framework-2015\Debug\Your Project.exe
+     1>Done Building Project "C:\Users\Austin.Morrell\Desktop\AIE_Framework-2015\Your Project\Your Project.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.43
