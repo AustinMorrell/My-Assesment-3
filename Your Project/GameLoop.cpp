@@ -20,6 +20,15 @@ void GameLoop::Loop()
 			// Refer to its header file and cpp for more information on what each inherited function is capable of
 			// and its syntax
 			OnEvent(sdlEvent);
+			switch (sdlEvent.type)
+			{
+			case SDL_MOUSEWHEEL:
+
+				break;
+
+			default:
+				break;
+			}
 		}
 		GetDeltaTime();
 
@@ -42,15 +51,14 @@ void GameLoop::Update()
 		color2--*DeltaTime;
 	}
 		color3++*DeltaTime;
-		bool theSwitch = 1;
-		size++*DeltaTime;
-		switch (theSwitch)
+//-----------------------------------
+		/*switch (theSwitch)
 		{
 		case 1:
 			size++*DeltaTime;
 			if (size >= 500)
 			{
-				theSwitch = 0;
+				theSwitch = false;
 			}
 			break;
 
@@ -58,13 +66,13 @@ void GameLoop::Update()
 			size--*DeltaTime;
 			if (size <= 0)
 			{
-				theSwitch = 1;
+				theSwitch = true;
 			}
 			break;
 			
 		default:
 			break;
-		}
+		}*/
 }
 
 void GameLoop::GetDeltaTime()
@@ -90,12 +98,36 @@ void GameLoop::Draw()
 	//Graphics::DrawLine({ 10, 10 }, { 100, 100 }, { 255, 255, 255, 255 });
 	//Graphics::DrawPoint({ 5, 5 }, { 255, 255, 255, 255 });
 	
-	cout << DeltaTime << endl;
+	//cout << DeltaTime << endl;
 
 	Graphics::DrawRing({ CircleVecter.x, CircleVecter.y }, size, sides, { 50, 0, 200, 255 });
 	Graphics::DrawCircle({ CircleVecter.x, CircleVecter.y }, size, sides, { 0, color1, color2, color3 });
 
 	Graphics::DrawCircle({ CircleVecter2.x, CircleVecter2.y }, size, sides, { 0, color1, color2, color3 });
+}
+
+void GameLoop::OnMouseWheel(const bool ac_bUp, const bool ac_bDown)
+{
+	if (ac_bUp == true) 
+	{
+		size += 10;
+	}
+
+	if (ac_bDown == true)
+	{
+		size -= 10;
+	}
+	cout << ac_bUp << endl;
+}
+
+void GameLoop::OnMouseMove(const int ac_iMouseX, const int ac_iMouseY, const int ac_iVelX, const int ac_VelY, const bool ac_bLeft, const bool ac_bRight, const bool ac_bMiddle)
+{
+	if ((CircleVecter.x != ac_iMouseX) && (CircleVecter.y != ac_iMouseY) && (ac_bLeft == true))
+	{
+		CircleVecter.x = CircleVecter.x + ac_iVelX;
+		CircleVecter.y = CircleVecter.y + ac_VelY;
+		/*cout << ac_VelY << endl;*/
+	}
 }
 
 void GameLoop::OnKeyDown(const SDL_Keycode ac_sdlSym, const Uint16 ac_uiMod, const SDL_Scancode ac_sdlScancode)

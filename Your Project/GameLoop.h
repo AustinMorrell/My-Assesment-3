@@ -35,6 +35,7 @@ private:
 	int timer;
 	float DeltaTime = 0.0;
 	int last = 0;
+	bool theSwitch = true;
 	
 
 public:
@@ -48,6 +49,12 @@ public:
 
 	// An update-like function that gets called directly after 'LateUpdate'
 	void Draw();
+
+	// Gets called automatically by 'EventHandler' when a mouse is moved
+	void OnMouseMove(const int ac_iMouseX, const int ac_iMouseY, const int ac_iVelX, const int ac_VelY, const bool ac_bLeft, const bool ac_bRight, const bool ac_bMiddle);
+
+	// Gets called automatically by 'EventHandler' when a mouse wheel is scrolled
+	void OnMouseWheel(const bool ac_bUp, const bool ac_bDown);
 
 	// Gets called automatically by 'EventHandler' when a key is pressed
 	void OnKeyDown(const SDL_Keycode ac_sdlSym, const Uint16 ac_uiMod, const SDL_Scancode ac_sdlScancode);
