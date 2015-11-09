@@ -2,8 +2,8 @@
 #include <Vector3.h>
 #include <Vector2.h>
 
-Vector2<int> CircleVecter(800, 450);
-Vector2<int> CircleVecter2(800, 450);
+Vector2<int> CircleVecter(500, 450);
+Vector2<int> CircleVecter2(1100, 450);
 
 void GameLoop::Loop()
 {
@@ -21,6 +21,8 @@ void GameLoop::Loop()
 			// and its syntax
 			OnEvent(sdlEvent);
 		}
+		GetDeltaTime();
+
 		Update();
 
 		LateUpdate();
@@ -34,7 +36,44 @@ void GameLoop::Loop()
 
 void GameLoop::Update()
 {
+	color1++*DeltaTime;
+	if (color1 == 200)
+	{
+		color2--*DeltaTime;
+	}
+		color3++*DeltaTime;
+		bool theSwitch = 1;
+		size++*DeltaTime;
+		switch (theSwitch)
+		{
+		case 1:
+			size++*DeltaTime;
+			if (size >= 500)
+			{
+				theSwitch = 0;
+			}
+			break;
+
+		case 0:
+			size--*DeltaTime;
+			if (size <= 0)
+			{
+				theSwitch = 1;
+			}
+			break;
+			
+		default:
+			break;
+		}
 }
+
+void GameLoop::GetDeltaTime()
+{
+	int now = SDL_GetTicks();
+	DeltaTime = ((float)(now - last)) / 1000;
+	last = now;
+}
+
 void GameLoop::LateUpdate()
 {
 
@@ -51,10 +90,12 @@ void GameLoop::Draw()
 	//Graphics::DrawLine({ 10, 10 }, { 100, 100 }, { 255, 255, 255, 255 });
 	//Graphics::DrawPoint({ 5, 5 }, { 255, 255, 255, 255 });
 	
-	Graphics::DrawRing({ CircleVecter.x, CircleVecter.y }, size, sides, { 50, 0, 200, 255 });
-	Graphics::DrawCircle({ CircleVecter.x, CircleVecter.y }, size, sides, { 0, color1, color2, 150 });
+	cout << DeltaTime << endl;
 
-	Graphics::DrawCircle({ CircleVecter2.x, CircleVecter2.y }, size, sides, { 0, color1, color2, 150 });
+	Graphics::DrawRing({ CircleVecter.x, CircleVecter.y }, size, sides, { 50, 0, 200, 255 });
+	Graphics::DrawCircle({ CircleVecter.x, CircleVecter.y }, size, sides, { 0, color1, color2, color3 });
+
+	Graphics::DrawCircle({ CircleVecter2.x, CircleVecter2.y }, size, sides, { 0, color1, color2, color3 });
 }
 
 void GameLoop::OnKeyDown(const SDL_Keycode ac_sdlSym, const Uint16 ac_uiMod, const SDL_Scancode ac_sdlScancode)

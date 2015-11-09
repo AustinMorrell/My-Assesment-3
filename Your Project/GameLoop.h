@@ -31,7 +31,10 @@ private:
 	int sides = 50;
 	int color1 = 255;
 	int color2 = 255;
+	int color3 = 150;
 	int timer;
+	float DeltaTime = 0.0;
+	int last = 0;
 	
 
 public:
@@ -52,6 +55,8 @@ public:
 	void OnKeyUp(const SDL_Keycode ac_sdlSym, const Uint16 ac_uiMod, const SDL_Scancode ac_sdlScancode);
 	// Gets called automatically by 'EventHandler' when the user clicks the 'x' on the window
 	void OnExit();
+	//Gets the change in time.
+	void GetDeltaTime();
 
 	// The default constructor
 	GameLoop();
