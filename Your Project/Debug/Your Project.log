@@ -1,26 +1,24 @@
-﻿Build started 11/9/2015 5:21:13 PM.
+﻿Build started 11/10/2015 5:32:24 PM.
      1>Project "C:\Users\Austin.Morrell\Desktop\My-Assesment-3\Your Project\Your Project.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"C:\Users\Austin.Morrell\Desktop\My-Assesment-3\Your Project\\Dependencies\include\SDL" /I"C:\Users\Austin.Morrell\Desktop\My-Assesment-3\Your Project\\Dependencies\include\OpenGL" /I"C:\Users\Austin.Morrell\Desktop\My-Assesment-3\Your Project\\Dependencies\include\Graphics" /I"C:\Users\Austin.Morrell\Desktop\My-Assesment-3\Your Project\\Dependencies\include\Math" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt GameLoop.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"C:\Users\Austin.Morrell\Desktop\My-Assesment-3\Your Project\\Dependencies\include\SDL" /I"C:\Users\Austin.Morrell\Desktop\My-Assesment-3\Your Project\\Dependencies\include\OpenGL" /I"C:\Users\Austin.Morrell\Desktop\My-Assesment-3\Your Project\\Dependencies\include\Graphics" /I"C:\Users\Austin.Morrell\Desktop\My-Assesment-3\Your Project\\Dependencies\include\Math" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt GameLoop.cpp Source.cpp
          GameLoop.cpp
-     1>c:\users\austin.morrell\desktop\my-assesment-3\your project\gameloop.cpp(39): warning C4552: '*': operator has no effect; expected operator with side-effect
-     1>c:\users\austin.morrell\desktop\my-assesment-3\your project\gameloop.cpp(42): warning C4552: '*': operator has no effect; expected operator with side-effect
-     1>c:\users\austin.morrell\desktop\my-assesment-3\your project\gameloop.cpp(44): warning C4552: '*': operator has no effect; expected operator with side-effect
-     1>c:\users\austin.morrell\desktop\my-assesment-3\your project\dependencies\include\graphics\graphics.h(333): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         c:\users\austin.morrell\desktop\my-assesment-3\your project\gameloop.cpp(94): note: see reference to function template instantiation 'void Graphics::DrawRing<int>(const System::Point2D<int>,const T,const T,const System::Color<T> &)' being compiled
-                 with
-                 [
-                     T=int
-                 ]
-     1>c:\users\austin.morrell\desktop\my-assesment-3\your project\dependencies\include\graphics\graphics.h(334): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\austin.morrell\desktop\my-assesment-3\your project\gameloop.cpp(46): warning C4552: '*': operator has no effect; expected operator with side-effect
+     1>c:\users\austin.morrell\desktop\my-assesment-3\your project\gameloop.cpp(49): warning C4552: '*': operator has no effect; expected operator with side-effect
+     1>c:\users\austin.morrell\desktop\my-assesment-3\your project\gameloop.cpp(51): warning C4552: '*': operator has no effect; expected operator with side-effect
+     1>c:\users\austin.morrell\desktop\my-assesment-3\your project\dependencies\include\graphics\graphics.h(293): warning C4244: 'argument': conversion from 'const float' to 'GLubyte', possible loss of data
+         c:\users\austin.morrell\desktop\my-assesment-3\your project\gameloop.cpp(111): note: see reference to function template instantiation 'void Graphics::DrawLine<float>(const System::Point2D<float> &,const System::Point2D<float> &,const System::Color<float> &)' being compiled
      1>c:\users\austin.morrell\desktop\my-assesment-3\your project\dependencies\include\graphics\graphics.h(352): warning C4244: 'argument': conversion from 'const int' to 'GLfloat', possible loss of data
-         c:\users\austin.morrell\desktop\my-assesment-3\your project\gameloop.cpp(95): note: see reference to function template instantiation 'void Graphics::DrawCircle<int>(const System::Point2D<int>,const T,const T,const System::Color<T> &)' being compiled
+         c:\users\austin.morrell\desktop\my-assesment-3\your project\gameloop.cpp(134): note: see reference to function template instantiation 'void Graphics::DrawCircle<int>(const System::Point2D<int>,const T,const T,const System::Color<T> &)' being compiled
                  with
                  [
                      T=int
                  ]
      1>c:\users\austin.morrell\desktop\my-assesment-3\your project\dependencies\include\graphics\graphics.h(356): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
      1>c:\users\austin.morrell\desktop\my-assesment-3\your project\dependencies\include\graphics\graphics.h(357): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         Source.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Austin.Morrell\Desktop\My-Assesment-3\Debug\Your Project.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Austin.Morrell\Desktop\My-Assesment-3\Your Project\\Dependencies\lib" /LIBPATH:"C:\Users\Austin.Morrell\Desktop\My-Assesment-3\Your Project\\Dependencies\lib\SDL" /LIBPATH:"C:\Users\Austin.Morrell\Desktop\My-Assesment-3\Your Project\\Dependencies\lib\OpenGL" "SDL-OpenGL Student Library.lib" "Template-Vector-Partner-Project.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Austin.Morrell\Desktop\My-Assesment-3\Debug\Your Project.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Austin.Morrell\Desktop\My-Assesment-3\Debug\Your Project.lib" /MACHINE:X86 Debug\GameLoop.obj
          Debug\Source.obj
@@ -29,4 +27,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.92
+Time Elapsed 00:00:01.39

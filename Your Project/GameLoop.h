@@ -27,7 +27,7 @@ class GameLoop : private EventHandler
 private:
 	bool m_bRunning; // If this is true, the game loop will continue to run
 
-	int size = 200;
+	int size = 50 ;
 	int sides = 50;
 	int color1 = 255;
 	int color2 = 255;
@@ -36,9 +36,17 @@ private:
 	float DeltaTime = 0.0;
 	int last = 0;
 	bool theSwitch = true;
+	bool stop = false;
+	float ticksx = 0;
+	float ticksy = 0;
+	int numbx = 0;
+	int numby = 0;
 	
 
 public:
+	// Breaking Math
+	int MathMakesNotMath(int x, int y);
+
 	// The game loop
 	void Loop();
 

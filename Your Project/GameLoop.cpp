@@ -20,7 +20,7 @@ void GameLoop::Loop()
 			// Refer to its header file and cpp for more information on what each inherited function is capable of
 			// and its syntax
 			OnEvent(sdlEvent);
-			switch (sdlEvent.type)
+			/*switch (sdlEvent.type)
 			{
 			case SDL_MOUSEWHEEL:
 
@@ -28,13 +28,11 @@ void GameLoop::Loop()
 
 			default:
 				break;
-			}
+			}*/
 		}
 		GetDeltaTime();
 
 		Update();
-
-		LateUpdate();
 
 		Draw();
 
@@ -51,6 +49,10 @@ void GameLoop::Update()
 		color2--*DeltaTime;
 	}
 		color3++*DeltaTime;
+
+		MathMakesNotMath(CircleVecter.x, CircleVecter.y);
+		cout << "The Location of the Circle is: (" << numbx << " , " << numby << ")" << endl;
+		system("cls");
 //-----------------------------------
 		/*switch (theSwitch)
 		{
@@ -75,16 +77,20 @@ void GameLoop::Update()
 		}*/
 }
 
+int GameLoop::MathMakesNotMath(int x, int y)
+{
+	x = (x - 800) / 100;
+	y = ((y - 450) / 100 * -1);
+	numbx = x;
+	numby = y;
+	return numbx, numby;
+}
+
 void GameLoop::GetDeltaTime()
 {
 	int now = SDL_GetTicks();
 	DeltaTime = ((float)(now - last)) / 1000;
 	last = now;
-}
-
-void GameLoop::LateUpdate()
-{
-
 }
 
 void GameLoop::Draw()
@@ -100,10 +106,33 @@ void GameLoop::Draw()
 	
 	//cout << DeltaTime << endl;
 
-	Graphics::DrawRing({ CircleVecter.x, CircleVecter.y }, size, sides, { 50, 0, 200, 255 });
-	Graphics::DrawCircle({ CircleVecter.x, CircleVecter.y }, size, sides, { 0, color1, color2, color3 });
+	//Graphics::DrawRing({ CircleVecter.x, CircleVecter.y }, size, sides, { 50, 0, 200, 255 });
+	//------------------------------------------------------------------------------------------------------
+			Graphics::DrawLine({ 800, 1600 }, { 800, 0 }, { 255, 255, 0, 255 });
+			Graphics::DrawLine({ 1600, 450 }, { 0, 450 }, { 255, 255, 255, 255 });
 
-	Graphics::DrawCircle({ CircleVecter2.x, CircleVecter2.y }, size, sides, { 0, color1, color2, color3 });
+			for (int x = 0; x < 16; x++)
+			{
+				Graphics::DrawLine({ 775, ticksy + 50 }, { 825, ticksy + 50 }, { 255, 255, 255, 255 });
+				ticksy += 100;
+				if (x == 15)
+				{
+					ticksy = 0;
+				}
+			}
+
+			for (int x = 0; x < 16; x++)
+			{
+				Graphics::DrawLine({ ticksx, 425 }, { ticksx, 475 }, { 255, 255, 0, 255 });
+				ticksx += 100;
+				if (x == 15)
+				{
+					ticksx = 0;
+				}
+			}
+
+	Graphics::DrawCircle({ CircleVecter.x, CircleVecter.y }, size, sides, { 0, color1, color2, color3 });
+	//Graphics::DrawCircle({ CircleVecter2.x, CircleVecter2.y }, size, sides, { 0, color1, color2, color3 });
 }
 
 void GameLoop::OnMouseWheel(const bool ac_bUp, const bool ac_bDown)
