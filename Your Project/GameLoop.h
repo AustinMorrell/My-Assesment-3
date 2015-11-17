@@ -27,21 +27,20 @@ class GameLoop : private EventHandler
 private:
 	bool m_bRunning; // If this is true, the game loop will continue to run
 
+	// All variables that I wish to be generaly accesable by anything under the GameLoop class.
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 	int size = 50 ;
 	int sides = 50;
 	int color1 = 255;
 	int color2 = 255;
 	int color3 = 150;
-	int timer;
 	float DeltaTime = 0.0;
 	int last = 0;
-	bool theSwitch = true;
-	bool stop = false;
 	float ticksx = 0;
 	float ticksy = 0;
 	int numbx = 0;
 	int numby = 0;
-	
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 public:
 	// Breaking Math
@@ -52,17 +51,12 @@ public:
 
 	// An update function that gets called directly after input is parsed
 	void Update();
-	// An update function that gets called directly after 'Update()'
-	void LateUpdate();
 
 	// An update-like function that gets called directly after 'LateUpdate'
 	void Draw();
 
 	// Gets called automatically by 'EventHandler' when a mouse is moved
 	void OnMouseMove(const int ac_iMouseX, const int ac_iMouseY, const int ac_iVelX, const int ac_VelY, const bool ac_bLeft, const bool ac_bRight, const bool ac_bMiddle);
-
-	// Gets called automatically by 'EventHandler' when a mouse wheel is scrolled
-	void OnMouseWheel(const bool ac_bUp, const bool ac_bDown);
 
 	// Gets called automatically by 'EventHandler' when a key is pressed
 	void OnKeyDown(const SDL_Keycode ac_sdlSym, const Uint16 ac_uiMod, const SDL_Scancode ac_sdlScancode);

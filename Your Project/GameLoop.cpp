@@ -1,9 +1,18 @@
+//////////////////////////////////////////////////
+// Austin Morrell //
+// November 16, 2015//
+// File: GameLoop.cpp//
+//////////////////////////////////////////////////
+
+// Before anything I need to include my math library and header files.
 #include "GameLoop.h"
-#include <Vector3.h>
 #include <Vector2.h>
 
+// These are the Vectors for our player characters.
 Vector2<int> CircleVecter(500, 450);
 Vector2<int> CircleVecter2(1100, 450);
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 void GameLoop::Loop()
 {
@@ -20,15 +29,6 @@ void GameLoop::Loop()
 			// Refer to its header file and cpp for more information on what each inherited function is capable of
 			// and its syntax
 			OnEvent(sdlEvent);
-			/*switch (sdlEvent.type)
-			{
-			case SDL_MOUSEWHEEL:
-
-				break;
-
-			default:
-				break;
-			}*/
 		}
 		GetDeltaTime();
 
@@ -40,6 +40,8 @@ void GameLoop::Loop()
 	}
 
 }
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 void GameLoop::Update()
 {
@@ -53,29 +55,9 @@ void GameLoop::Update()
 		MathMakesNotMath(CircleVecter.x, CircleVecter.y);
 		cout << "The Location of the Circle is: (" << numbx << " , " << numby << ")" << endl;
 		system("cls");
-//-----------------------------------
-		/*switch (theSwitch)
-		{
-		case 1:
-			size++*DeltaTime;
-			if (size >= 500)
-			{
-				theSwitch = false;
-			}
-			break;
-
-		case 0:
-			size--*DeltaTime;
-			if (size <= 0)
-			{
-				theSwitch = true;
-			}
-			break;
-			
-		default:
-			break;
-		}*/
 }
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 int GameLoop::MathMakesNotMath(int x, int y)
 {
@@ -86,6 +68,8 @@ int GameLoop::MathMakesNotMath(int x, int y)
 	return numbx, numby;
 }
 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 void GameLoop::GetDeltaTime()
 {
 	int now = SDL_GetTicks();
@@ -93,24 +77,18 @@ void GameLoop::GetDeltaTime()
 	last = now;
 }
 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 void GameLoop::Draw()
 {
 	// Objects are drawn in a painter's layer fashion meaning the first object drawn is on the bottom, and the last one drawn is on the top
 	// just like a painter would paint onto a canvas
 
-	//Graphics::DrawRect({ 400, 400 }, { 450, 400 }, { 160, 65, 255, 255 });
-	//Graphics::DrawRect({ 250, 500 }, { 1000, 200 }, { 0, 255, 0, 255 });
-
-	//Graphics::DrawLine({ 10, 10 }, { 100, 100 }, { 255, 255, 255, 255 });
-	//Graphics::DrawPoint({ 5, 5 }, { 255, 255, 255, 255 });
-	
-	//cout << DeltaTime << endl;
-
-	//Graphics::DrawRing({ CircleVecter.x, CircleVecter.y }, size, sides, { 50, 0, 200, 255 });
-	//------------------------------------------------------------------------------------------------------
+	// First we draw the x and y axis using lines.
 			Graphics::DrawLine({ 800, 1600 }, { 800, 0 }, { 255, 255, 0, 255 });
 			Graphics::DrawLine({ 1600, 450 }, { 0, 450 }, { 255, 255, 255, 255 });
 
+	// Same for the tick marks on the lines.
 			for (int x = 0; x < 16; x++)
 			{
 				Graphics::DrawLine({ 775, ticksy + 50 }, { 825, ticksy + 50 }, { 255, 255, 255, 255 });
@@ -131,23 +109,12 @@ void GameLoop::Draw()
 				}
 			}
 
+	// We can then make the player and second player.
 	Graphics::DrawCircle({ CircleVecter.x, CircleVecter.y }, size, sides, { 0, color1, color2, color3 });
-	//Graphics::DrawCircle({ CircleVecter2.x, CircleVecter2.y }, size, sides, { 0, color1, color2, color3 });
+	Graphics::DrawCircle({ CircleVecter2.x, CircleVecter2.y }, size, sides, { 0, color1, color2, color3 });
 }
 
-void GameLoop::OnMouseWheel(const bool ac_bUp, const bool ac_bDown)
-{
-	if (ac_bUp == true) 
-	{
-		size += 10;
-	}
-
-	if (ac_bDown == true)
-	{
-		size -= 10;
-	}
-	cout << ac_bUp << endl;
-}
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 void GameLoop::OnMouseMove(const int ac_iMouseX, const int ac_iMouseY, const int ac_iVelX, const int ac_VelY, const bool ac_bLeft, const bool ac_bRight, const bool ac_bMiddle)
 {
@@ -155,13 +122,14 @@ void GameLoop::OnMouseMove(const int ac_iMouseX, const int ac_iMouseY, const int
 	{
 		CircleVecter.x = CircleVecter.x + ac_iVelX;
 		CircleVecter.y = CircleVecter.y + ac_VelY;
-		/*cout << ac_VelY << endl;*/
 	}
 }
 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 void GameLoop::OnKeyDown(const SDL_Keycode ac_sdlSym, const Uint16 ac_uiMod, const SDL_Scancode ac_sdlScancode)
 {
-//------------------------------------------------
+// Player 1 control commands.
 	switch (ac_sdlSym)
 	{
 	case SDLK_a:
@@ -195,8 +163,8 @@ void GameLoop::OnKeyDown(const SDL_Keycode ac_sdlSym, const Uint16 ac_uiMod, con
 			CircleVecter.y += 10;
 		}
 		break;
-//------------------------------------------------
 
+// Player 2 control commands.
 	case SDLK_LEFT:
 		CircleVecter2.x -= 10;
 		if (CircleVecter2.x <= 0)
@@ -229,7 +197,7 @@ void GameLoop::OnKeyDown(const SDL_Keycode ac_sdlSym, const Uint16 ac_uiMod, con
 		}
 		break;
 
-//------------------------------------------------
+// Controls for both players size and number of sides.
 	case SDLK_q:
 		size -= 5;
 		break;
@@ -245,7 +213,7 @@ void GameLoop::OnKeyDown(const SDL_Keycode ac_sdlSym, const Uint16 ac_uiMod, con
 	case SDLK_x:
 		sides += 1;
 		break;
-//------------------------------------------------
+// Commands for changing the color (Even tho there not too helpfull).
 	case SDLK_h:
 		color1 -= 5;
 		break;
@@ -267,6 +235,9 @@ void GameLoop::OnKeyDown(const SDL_Keycode ac_sdlSym, const Uint16 ac_uiMod, con
 	default: printf("%s\n", SDL_GetKeyName(ac_sdlSym)); break;
 	}
 }
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 void GameLoop::OnKeyUp(const SDL_Keycode ac_sdlSym, const Uint16 ac_uiMod, const SDL_Scancode ac_sdlScancode)
 {
 	switch (ac_sdlSym)
@@ -274,15 +245,23 @@ void GameLoop::OnKeyUp(const SDL_Keycode ac_sdlSym, const Uint16 ac_uiMod, const
 	default: break;
 	}
 }
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 void GameLoop::OnExit()
 {
 	m_bRunning = false; // End the loop
 }
 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 GameLoop::GameLoop()
 {
 	m_bRunning = true;
 }
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 GameLoop::~GameLoop()
 {
 

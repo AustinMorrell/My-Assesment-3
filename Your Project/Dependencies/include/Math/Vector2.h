@@ -22,8 +22,8 @@ public:
 	Vector2 Normalising(Vector2 &a);
 	T DotProduct(Vector2 &a, Vector2 &b);
 
-	int x;
-	int y;
+	T x;
+	T y;
 };
 #endif _VECTOR2_H_
 

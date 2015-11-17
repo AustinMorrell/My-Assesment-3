@@ -36,9 +36,9 @@ public:
 	Vector3 Cross(Vector3 &a, Vector3 &b);
 
 	//Variables for coordinates
-	int x;
-	int y;
-	int z;
+	T x;
+	T y;
+	T z;
 };
 
 
