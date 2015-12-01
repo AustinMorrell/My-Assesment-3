@@ -7,10 +7,12 @@
 // Before anything I need to include my math library and header files.
 #include "GameLoop.h"
 #include <Vector2.h>
+#include <Vector4.h>
 
 // These are the Vectors for our player characters.
 Vector2<int> CircleVecter(500, 450);
 Vector2<int> CircleVecter2(1100, 450);
+Vector4<int> Color(0, 255, 255, 150);
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -45,12 +47,17 @@ void GameLoop::Loop()
 
 void GameLoop::Update()
 {
-	color1++*DeltaTime;
-	if (color1 == 200)
+	if ((CircleVecter2.x != CircleVecter.x + (size * 2)) || (CircleVecter2.y != CircleVecter.y + (size * 2)))
 	{
-		color2--*DeltaTime;
+		CircleVecter2.x = CircleVecter2.x + ((CircleVecter.x - CircleVecter2.x) * DeltaTime);
+		CircleVecter2.y = CircleVecter2.y + ((CircleVecter.y - CircleVecter2.y) * DeltaTime);
 	}
-		color3++*DeltaTime;
+	Color.y++*DeltaTime;
+	if (Color.y == 200)
+	{
+		Color.z--*DeltaTime;
+	}
+		Color.w++*DeltaTime;
 
 		MathMakesNotMath(CircleVecter.x, CircleVecter.y);
 		cout << "The Location of the Circle is: (" << numbx << " , " << numby << ")" << endl;
@@ -110,8 +117,8 @@ void GameLoop::Draw()
 			}
 
 	// We can then make the player and second player.
-	Graphics::DrawCircle({ CircleVecter.x, CircleVecter.y }, size, sides, { 0, color1, color2, color3 });
-	Graphics::DrawCircle({ CircleVecter2.x, CircleVecter2.y }, size, sides, { 0, color1, color2, color3 });
+	Graphics::DrawCircle({ CircleVecter.x, CircleVecter.y }, size, sides, { Color.x, Color.y, Color.z, Color.w });
+	Graphics::DrawCircle({ CircleVecter2.x, CircleVecter2.y }, size, sides, { Color.x, Color.y, Color.z, Color.w });
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -212,22 +219,6 @@ void GameLoop::OnKeyDown(const SDL_Keycode ac_sdlSym, const Uint16 ac_uiMod, con
 
 	case SDLK_x:
 		sides += 1;
-		break;
-// Commands for changing the color (Even tho there not too helpfull).
-	case SDLK_h:
-		color1 -= 5;
-		break;
-
-	case SDLK_j:
-		color1 += 5;
-		break;
-
-	case SDLK_k:
-		color2 -= 5;
-		break;
-
-	case SDLK_l:
-		color2 += 5;
 		break;
 
 	case SDLK_ESCAPE: m_bRunning = false; break; // End the loop

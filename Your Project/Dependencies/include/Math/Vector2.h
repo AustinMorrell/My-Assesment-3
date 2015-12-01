@@ -15,9 +15,9 @@ public:
 	Vector2<T>();
 	Vector2<T>(T x, T y);
 	~Vector2<T>();
-	Vector2 Adding(Vector2 &a, Vector2 &b);
-	Vector2 Subtracting(Vector2 &a, Vector2 &b);
-	Vector2 Multiplication(Vector2 &a, Vector2 &b);
+	Vector2 operator+(Vector2 &a);
+	Vector2 operator-(Vector2 &a);
+	Vector2 operator*(Vector2 &a);
 	float Magnitude(Vector2 &a);
 	Vector2 Normalising(Vector2 &a);
 	T DotProduct(Vector2 &a, Vector2 &b);
@@ -48,31 +48,31 @@ Vector2<T>::~Vector2()
 
 //Adding
 template<typename T>
-Vector2<T> Vector2<T>::Adding(Vector2 &a, Vector2 &b)
+Vector2<T> Vector2<T>::operator+(Vector2 &a)
 {
 	Vector2 c;
-	c.x = a.x + b.x;
-	c.y = a.y + b.y;
+	c.x = x + a.x;
+	c.y = y + a.y;
 	return c;
 }
 
 //Subtracting
 template<typename T>
-Vector2<T> Vector2<T>::Subtracting(Vector2 &a, Vector2 &b)
+Vector2<T> Vector2<T>::operator-(Vector2 &a)
 {
 	Vector2 c;
-	c.x = a.x - b.x;
-	c.y = a.y - b.y;
+	c.x = x - a.x;
+	c.y = y - a.y;
 	return c;
 }
 
 //Multiplication
 template<typename T>
-Vector2<T> Vector2<T>::Multiplication(Vector2 &a, Vector2 &b)
+Vector2<T> Vector2<T>::operator*(Vector2 &a)
 {
 	Vector2 c;
-	c.x = a.x * b.x;
-	c.y = a.y * b.y;
+	c.x = x * a.x;
+	c.y = y * a.y;
 	return c;
 
 }

@@ -1,9 +1,8 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//File: Vector3.h
-//Author: Andrew Miller
-//Date Created: 10/22/2015
-//Brief: This is the Vector3 header file. It contains the Templated Vector3 Class and its prototypes and definitions
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+//Austin Morrell//
+//December 1th 2015//
+//Templated Vector4//
+///////////////////////////////////////////////////////////////
 
 #ifndef _VECTOR3_H_
 #define _VECTOR3_H_
@@ -21,11 +20,11 @@ public:
 	//Destructor
 	~Vector3<T>();
 	//Add Vectors
-	Vector3 Add(Vector3 &a, Vector3 &b);
+	Vector3 operator+(Vector3 &a);
 	//Subtract Vectors
-	Vector3 Sub(Vector3 &a, Vector3 &b);
+	Vector3 operator-(Vector3 &a);
 	//Multiply Vectors
-	Vector3 Multiply(Vector3 &a, Vector3 &b);
+	Vector3 operator*(Vector3 &a);
 	//Magnitude of Vectors
 	float Mag(Vector3 &a);
 	//Normalise Vectors
@@ -74,32 +73,32 @@ Vector3<T>::~Vector3()
 
 //Add Vectors
 template<typename T>
-Vector3<T> Vector3<T>::Add(Vector3 &a, Vector3 &b)
+Vector3<T> Vector3<T>::operator+(Vector3 &a)
 {
 	//New Vector variable
 	Vector3 c;
 	//Add each x coordinate of 2 passed in vectors then store value into x value of new vector
-	c.x = a.x + b.x;
+	c.x = x + a.x;
 	//Add each y coordinate of 2 passed in vectors then store value into y value of new vector
-	c.y = a.y + b.y;
+	c.y = y + a.y;
 	//Add each z coordinate of 2 passed in vectors then store value into z value of new vector
-	c.z = a.z + b.z;
+	c.z = z + a.z;
 	//Return new vector
 	return c;
 }
 
 //Subtract Vectors
 template<typename T>
-Vector3<T> Vector3<T>::Sub(Vector3 &a, Vector3 &b)
+Vector3<T> Vector3<T>::operator-(Vector3 &a)
 {
 	//New Vector variable
 	Vector3 c;
 	//Subtract each x coordinate of 2 passed in vectors then store value into x value of new vector
-	c.x = a.x - b.x;
+	c.x = x - a.x;
 	//Subtract each y coordinate of 2 passed in vectors then store value into y value of new vector
-	c.y = a.y - b.y;
+	c.y = y - a.y;
 	//Subtract each z coordinate of 2 passed in vectors then store value into z value of new vector
-	c.z = a.z - b.z;
+	c.z = z - a.z;
 	//Return new vector
 	return c;
 }
@@ -150,15 +149,15 @@ Vector3<T> Vector3<T>::Normalise(Vector3 &a)
 
 //Multiply Vectors
 template<typename T>
-Vector3<T> Vector3<T>::Multiply(Vector3 &a, Vector3 &b)
+Vector3<T> Vector3<T>::operator*(Vector3 &a)
 {//New Vector variable
 	Vector3 c;
 	//Square each x coordinate of 2 passed in vectors then store value into x value of new vector
-	c.x = a.x * b.x;
+	c.x = x * a.x;
 	//Square each y coordinate of 2 passed in vectors then store value into y value of new vector
-	c.y = a.y * b.y;
+	c.y = y * a.y;
 	//Square each z coordinate of 2 passed in vectors then store value into z value of new vector
-	c.z = a.z * b.z;
+	c.z = z * a.z;
 	//Return new vector
 	return c;
 
