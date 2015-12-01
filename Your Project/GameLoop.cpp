@@ -12,6 +12,7 @@
 // These are the Vectors for our player characters.
 Vector2<int> CircleVecter(500, 450);
 Vector2<int> CircleVecter2(1100, 450);
+Vector2<int> BlankVecter(0, 0);
 Vector4<int> Color(0, 255, 255, 150);
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -59,20 +60,13 @@ void GameLoop::Update()
 	}
 		Color.w++*DeltaTime;
 
-		MathMakesNotMath(CircleVecter.x, CircleVecter.y);
-		cout << "The Location of the Circle is: (" << numbx << " , " << numby << ")" << endl;
+		BlankVecter = CircleVecter + CircleVecter2;
+		cout << "Both Circles Added: " << BlankVecter.x << ", " << BlankVecter.y << endl;
+		BlankVecter = CircleVecter - CircleVecter2;
+		cout << "Both Circles Subtracted: " << BlankVecter.x << ", " << BlankVecter.y << endl;
+		BlankVecter = CircleVecter * CircleVecter2;
+		cout << "Both Circles Multipled: " << BlankVecter.x << ", " << BlankVecter.y << endl;
 		system("cls");
-}
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-int GameLoop::MathMakesNotMath(int x, int y)
-{
-	x = (x - 800) / 100;
-	y = ((y - 450) / 100 * -1);
-	numbx = x;
-	numby = y;
-	return numbx, numby;
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
