@@ -52,9 +52,6 @@ private:
 	//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 public:
-	// Objects follow the player around in a stream
-	void GameLoop::Follow(Vector2<int> &a, Vector2<int> &b);
-
 	// The game loop
 	void Loop();
 
@@ -69,15 +66,22 @@ public:
 
 	// Gets called automatically by 'EventHandler' when a key is pressed
 	void OnKeyDown(const SDL_Keycode ac_sdlSym, const Uint16 ac_uiMod, const SDL_Scancode ac_sdlScancode);
+
 	// Gets called automatically by 'EventHandler' when a key is released
 	void OnKeyUp(const SDL_Keycode ac_sdlSym, const Uint16 ac_uiMod, const SDL_Scancode ac_sdlScancode);
+
 	// Gets called automatically by 'EventHandler' when the user clicks the 'x' on the window
 	void OnExit();
+
 	//Gets the change in time.
 	void GetDeltaTime();
 
+	// Objects follow the player around in a stream
+	void Follow(Vector2<int> &a, Vector2<int> &b);
+
 	// The default constructor
 	GameLoop();
+
 	// The default de-constructor
 	~GameLoop();
 };
