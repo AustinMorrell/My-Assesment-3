@@ -12,6 +12,8 @@
 #include "Graphics.h"
 #include "EventHandler.h"
 #include <iostream>
+#include <Vector2.h>
+#include <Vector4.h>
 using namespace std;
 
 // This is called inheritance
@@ -27,7 +29,7 @@ class GameLoop : private EventHandler
 private:
 	bool m_bRunning; // If this is true, the game loop will continue to run
 
-	// All variables that I wish to be generaly accesable by anything under the GameLoop class.
+	// All variables that I wish to be globaly accesable by anything under the GameLoop class.
 	//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 	int size = 50 ;
 	int sides = 50;
@@ -37,9 +39,22 @@ private:
 	float ticksy = 0;
 	int numbx = 0;
 	int numby = 0;
+
+	// These are the Vectors for our player characters.
+	Vector2<int> CircleVecter{ 500, 450 };
+	Vector2<int> CircleVecter2{ 1100, 450 };
+	Vector2<int> CircleVecter3{ 1100, 450 };
+	Vector2<int> CircleVecter4{ 1100, 450 };
+	Vector2<int> CircleVecter5{ 1100, 450 };
+	Vector2<int> CircleVecter6{ 1100, 450 };
+	Vector2<int> BlankVecter{ 0, 0 };
+	Vector4<int> Color{ 0, 255, 255, 150 };
 	//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 public:
+	// Objects follow the player around in a stream
+	void GameLoop::Follow(Vector2<int> &a, Vector2<int> &b);
+
 	// The game loop
 	void Loop();
 
@@ -67,4 +82,4 @@ public:
 	~GameLoop();
 };
 
-#endif // _GAMELOOP_H_
+#endif _GAMELOOP_H_

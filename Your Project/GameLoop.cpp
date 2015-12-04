@@ -6,14 +6,6 @@
 
 // Before anything I need to include my math library and header files.
 #include "GameLoop.h"
-#include <Vector2.h>
-#include <Vector4.h>
-
-// These are the Vectors for our player characters.
-Vector2<int> CircleVecter(500, 450);
-Vector2<int> CircleVecter2(1100, 450);
-Vector2<int> BlankVecter(0, 0);
-Vector4<int> Color(0, 255, 255, 150);
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -45,20 +37,23 @@ void GameLoop::Loop()
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+void GameLoop::Follow(Vector2<int> &a, Vector2<int> &b)
+{
+	if ((b.x != a.x ) || (b.y != a.y))
+	{
+		b.x = b.x + ((a.x - b.x /*+ (size * 2)*/) * DeltaTime);
+		b.y = b.y + ((a.y - b.y /*+ (size * 2)*/) * DeltaTime);
+	}
+}
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 void GameLoop::Update()
 {
-	if ((CircleVecter2.x != CircleVecter.x + (size * 2)) || (CircleVecter2.y != CircleVecter.y + (size * 2)))
-	{
-		CircleVecter2.x = CircleVecter2.x + ((CircleVecter.x - CircleVecter2.x) * DeltaTime);
-		CircleVecter2.y = CircleVecter2.y + ((CircleVecter.y - CircleVecter2.y) * DeltaTime);
-	}
-	Color.y++*DeltaTime;
-	if (Color.y == 200)
-	{
-		Color.z--*DeltaTime;
-	}
-		Color.w++*DeltaTime;
+	Follow(CircleVecter, CircleVecter2);
+	Follow(CircleVecter2, CircleVecter3);
+	Follow(CircleVecter3, CircleVecter4);
+	Follow(CircleVecter4, CircleVecter5);
+	Follow(CircleVecter5, CircleVecter6);
 
 		BlankVecter = CircleVecter + CircleVecter2;
 		cout << "Both Circles Added: " << BlankVecter.x << ", " << BlankVecter.y << endl;
@@ -113,6 +108,10 @@ void GameLoop::Draw()
 	// We can then make the player and second player.
 	Graphics::DrawCircle({ CircleVecter.x, CircleVecter.y }, size, sides, { Color.x, Color.y, Color.z, Color.w });
 	Graphics::DrawCircle({ CircleVecter2.x, CircleVecter2.y }, size, sides, { Color.x, Color.y, Color.z, Color.w });
+	Graphics::DrawCircle({ CircleVecter3.x, CircleVecter3.y }, size, sides, { Color.x, Color.y, Color.z, Color.w });
+	Graphics::DrawCircle({ CircleVecter4.x, CircleVecter4.y }, size, sides, { Color.x, Color.y, Color.z, Color.w });
+	Graphics::DrawCircle({ CircleVecter5.x, CircleVecter5.y }, size, sides, { Color.x, Color.y, Color.z, Color.w });
+	Graphics::DrawCircle({ CircleVecter6.x, CircleVecter6.y }, size, sides, { Color.x, Color.y, Color.z, Color.w });
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
